@@ -3,14 +3,13 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 10000;
 
 // Middleware
 app.use(express.json());
 app.use(cors());
 
-// MongoDB Connection (Replace with your local connection string or MongoDB Atlas URI)
-const mongoURI = 'mongodb://localhost:27017/votingSystem';
+const mongoURI = process.env.MONGODB_URI
 mongoose.connect(mongoURI)
     .then(() => console.log('Successfully connected to MongoDB.'))
     .catch(err => console.error('MongoDB connection error:', err));
