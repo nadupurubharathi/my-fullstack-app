@@ -75,3 +75,9 @@ app.get('/api/results', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running smoothly on port ${PORT}`);
 });
+// Middleware taruvata, mongoose.connect taruvata, ee line add cheyi
+app.get('/', (req, res) => {
+  res.send('Bharathi API is Live! 🚀 Welcome bro');
+});
+
+// app.listen mundu pettu
