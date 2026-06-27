@@ -1,3 +1,4 @@
+const path = require('path');
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -72,12 +73,16 @@ app.get('/api/results', async (req, res) => {
 });
 
 // Start Server
-app.listen(PORT, () => {
-    console.log(`Server running smoothly on port ${PORT}`);
-});
+
 // Middleware taruvata, mongoose.connect taruvata, ee line add cheyi
+// Middleware taruvata, mongoose.connect taruvata, ee line add cheyi
+app.use(express.static(__dirname));
+
 app.get('/', (req, res) => {
-  res.send('Bharathi API is Live! 🚀 Welcome bro');
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // app.listen mundu pettu
+app.listen(PORT, () => {
+  console.log(`Server running smoothly on port ${PORT}`);
+});
